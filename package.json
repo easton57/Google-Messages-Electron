@@ -1,0 +1,36 @@
+{
+  "name": "google-messages-electron",
+  "version": "1.0.0",
+  "description": "Google Messages Electron App",
+  "main": "main.js",
+  "scripts": {
+    "mac": "npx nativefier --conceal --platform \"mac\" --icon icon.png --name \"Google Messages\" \"https://messages.google.com/web\" --honest --disable-dev-tools --single-instance dist/Mac",
+    "windows": "npx nativefier --platform \"windows\" --icon icon.png --name \"Google Messages\" \"https://messages.google.com/web\" --honest --disable-dev-tools --single-instance dist/Windows",
+    "windows:tray": "npx nativefier --platform \"windows\" --icon icon.png --name \"Google Messages\" \"https://messages.google.com/web\" --honest --disable-dev-tools --single-instance --tray dist/Windows_Tray",
+    "linux": "npx nativefier --platform \"linux\" --icon icon.png --name \"Google Messages\" \"https://messages.google.com/web\" --honest --disable-dev-tools --single-instance dist/Linux",
+    "package:mac": "cd dist/Mac; zip -r ../google-messages-mac_v$(npm -s run env echo '$npm_package_version').zip *",
+    "package:linux": "cd dist/Linux; zip -r ../google-messages-linux_v$(npm -s run env echo '$npm_package_version').zip *",
+    "package:windows": "cd dist/Windows; zip -r ../google-messages-windows_v$(npm -s run env echo '$npm_package_version').zip *",
+    "package:windows_tray": "cd dist/Windows_Tray; zip -r ../google-messages-windows-tray_v$(npm -s run env echo '$npm_package_version').zip *",
+    "clean:dist": "rm -rf dist",
+    "clean:packages": "rm -rf Windows/*.zip Mac/*.zip Linux/*.zip",
+    "build:all": "npm run clean:dist && npm run mac && npm run windows && npm run windows:tray && npm run linux",
+    "package:all": "npm run clean:packages && npm run package:mac && npm run package:linux && npm run package:windows && npm run package:windows_tray",
+    "release": "npm run build:all && npm run package:all"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easton57/google-messages-electron.git"
+  },
+  "author": "Easton Seidel",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.2"
+  },
+  "dependencies": {
+    "nativefier": "^52.0.0"
+  }
+}
