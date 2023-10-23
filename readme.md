@@ -14,3 +14,6 @@ If you'd like to build::
         <li>node npm windows:tray</li>
     </ul>
 </ol>
+
+<h3>Troubleshooting</h3>
+Make sure nativefier version 51.0.1 is installed. 52.0.0 doesn't work.
