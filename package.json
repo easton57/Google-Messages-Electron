@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/easton57/google-messages-electron.git"
+    "url": "git+https://github.com/easton57/Google-Messages-Electron.git"
   },
   "author": "Easton Seidel",
   "license": "MIT",
