@@ -31,6 +31,6 @@
     "electron": "^27.0.2"
   },
   "dependencies": {
-    "nativefier": "^52.0.0"
+    "nativefier": "^51.0.1"
   }
 }
